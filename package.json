@@ -1,0 +1,28 @@
+{
+  "name": "bodabanja",
+  "version": "1.0.0",
+  "description": "The Boda Boda new client registration platform",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MyQuestMike/bodaBanja.git"
+  },
+  "keywords": [
+    "boda",
+    "boda",
+    "banja"
+  ],
+  "author": "Mike Rembo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MyQuestMike/bodaBanja/issues"
+  },
+  "homepage": "https://github.com/MyQuestMike/bodaBanja#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
