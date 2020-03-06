@@ -1,0 +1,22 @@
+
+
+#logo{
+    margin-top: 4px;
+}
+#mid-section{
+    color: #1c1e21;
+}
+.login{
+    color: gray;
+}
+tr, td{
+    border-spacing: 5px;
+}
+.table-input{
+    border-radius: 2px;
+}
+#wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
