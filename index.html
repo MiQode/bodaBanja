@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda-Boda Banja &raquo; Home</title>
     <link href="./css/bootstrap/bootstrap.min.css">
 </head>
+
 <body>
     <div class="container">
         <div class="row">
             <div class="col">
-                <form>
-                    <div class="form-group vertical">
-                        <input type="text" class="form-control" name="fname" id="fname">
-                        <input type="text" class="form-control" name="lname" id="lname">
-                        <button class="btn btn-success">Submit</button>
-                    </div>
+                <form method="post" action="/addname">
+                    <label>Enter Your Name</label><br>
+                    <input type="text" name="firstName" placeholder="Enter first name..." required>
+                    <input type="text" name="lastName" placeholder="Enter last name..." required>
+                    <input type="submit" value="Add Name">
                 </form>
             </div>
         </div>
     </div>
 </body>
+
 </html>

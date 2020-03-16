@@ -1,0 +1,9 @@
+body{
+    background-color: gray;
+}
+th{
+    background-color: green;
+}
+tr, td{
+    color: rgb(18, 26, 4);
+} 

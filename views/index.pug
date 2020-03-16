@@ -1,0 +1,19 @@
+html
+    head
+        title Boda Boda Banja
+        link(rel="stylesheet", href="./style.css")
+    body
+        div.container
+            h1 Please Fill in your details
+            form(action="/addclient", method="POST")
+                label First Name:
+                input#firstname(type="text", name="firstName")
+                br
+                label Last Name:
+                input#lastname(type="text", name="lastName")
+                br
+                label Nick Name:
+                input#nickname(type="text", name="nickName")
+                br
+                input(type="submit" value="submit")
+                input(type="reset" value="Clear")
