@@ -1,0 +1,45 @@
+html
+    head
+        title Sales Executive Register &raquo; Home
+        link(rel="stylesheet", href="./style.css")
+    body
+        div.container
+            h1 New Sales Executive Registration Form
+            form(action="/registerExec", method="POST")
+                label First Name:
+                input#firstname(type="text", name="firstName")
+                br
+                label Last Name:
+                input#lastname(type="text", name="lastName")
+                br
+                label Email:
+                input#email(type="email", name="email")
+                br
+                label Password:
+                input#password(type="password", name="password")
+                br
+                label Car:
+                select#car(name="cars")
+                    option(value='0') -- Select -- 
+                    option(value='1') Volvo
+                    option(value='2') Benz
+                    option(value='3') Toyota
+                    option(value='4') Audi
+                br
+                //- label Birthday:
+                //- input#birthday(type='date', name='birthday')
+                //- br
+                p Gender
+                label Female:
+                input#fgender(type="radio", name="gender" value="female")
+                label Male:
+                input#mgender(type="radio", name="gender" value="male")
+                br
+                p Role
+                label Admin:
+                input#role(type="radio", name="role" value="admin")
+                label Sales Executive:
+                input#role(type="radio", name="role" value="salesExec")
+                br
+                input(type="submit" value="Register")
+                input(type="reset" value="Clear")
