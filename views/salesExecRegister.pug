@@ -7,7 +7,7 @@ html
             h1 New Sales Executive Registration Form
             form(action="/registerExec", method="POST")
                 label First Name:
-                input#firstname(type="text", name="firstName")
+                input#firstName(type="text", name="firstName")
                 br
                 label Last Name:
                 input#lastname(type="text", name="lastName")
@@ -21,10 +21,10 @@ html
                 label Car:
                 select#car(name="cars")
                     option(value='0') -- Select -- 
-                    option(value='1') Volvo
-                    option(value='2') Benz
-                    option(value='3') Toyota
-                    option(value='4') Audi
+                    option(value='Volvo') Volvo
+                    option(value='Benz') Benz
+                    option(value='Toyota') Toyota
+                    option(value='Audi') Audi
                 br
                 //- label Birthday:
                 //- input#birthday(type='date', name='birthday')

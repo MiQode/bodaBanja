@@ -5,14 +5,14 @@ html
     body
         div.form-row
             div.col.form-group.col-md-9    
-                form.search(action='/list')
+                form.search(action='/saleExecList' method='GET')
                     div.form-row
                         div.col-md-8
-                            input.form-control(name='fullName' placeholder="Enter your search term ...")
+                            input.form-control(name='gender' placeholder="Enter your search term ...")
                         div.col-md-2
                             input.btn.btn-dark.btn-block(type="submit")
             div.col.form-group.col-md-3 
-                form(method="post" action="/logout")   
+                form(method="POST" action="/logout")   
                     button.btn.btn-dark.btn-block(type="submit") Log out
         table.table
             thead.thead-dark

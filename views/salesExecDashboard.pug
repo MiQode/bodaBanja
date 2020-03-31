@@ -1,20 +1,22 @@
 doctype html
 html
     head
-        link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+        link(rel="stylesheet", href="./style.css")
     body
         div.form-row
-            div.col.form-group.col-md-9 
             div.col.form-group.col-md-3 
                 form(method="POST" action="/logout")   
                     button.btn.btn-dark.btn-block(type="submit") Logout
-        h2 Welcome #{user.fullName}
-        p Here is your information
+        h2 Welcome #{user.firstName}
+            p Here is your information
         table.table
             thead.thead-dark
                 tr
-                    th Full name 
-                    td #{user.fullName}
+                    th First Name 
+                    td #{user.firstName}
+                tr
+                    th Last Name 
+                    td #{user.lastName}
                 tr
                     th Car
                     td #{user.cars}

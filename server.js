@@ -35,17 +35,17 @@ server.use('/registerExec', regSaleExecRoutes);
 server.use('/user', userRoutes);
 
 // //logout route
-// server.post('.logout', (req, res) => {
-//     if (req.session) {
-//         req.session.destroy(function (err) {
-//             if (err) {
-//                 //failed to destroy session
-//             }else {
-//                 return res.redirect('/login');
-//             }
-//         })
-//     }
-// })
+server.post('/logout', (req, res) => {
+    if (req.session) {
+        req.session.destroy(function (err) {
+            if (err) {
+                //failed to destroy session
+            }else {
+                return res.redirect('/');
+            }
+        })
+    }
+})
 
 //Connection to Database
 mongoose.connect("mongodb://localhost:27017/banjaData", { useNewUrlParser: true, useUnifiedTopology: true }, (error) => {
