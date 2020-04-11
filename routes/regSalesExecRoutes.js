@@ -21,8 +21,8 @@ router.post("/", async (req, res)=> {
         res.status(400).send("unable to save to database");
     }
 });
-
-router.post("/addname", async (req, res)=> {
+// router.post("/addname", async (req, res)=>
+router.post("/registerExec", async (req, res)=> {
     try {
         var myData = new User(req.body);
         await myData.save()
@@ -52,7 +52,8 @@ router.post("/update", async (req, res) => {
 router.post("/delete", async (req, res) => {
     try {
         await User.deleteOne({ _id: req.body.id })
-        res.redirect('/salesExecList')
+        res.redirect('back')
+        // res.redirect('user/salesExecList')
     } catch (error) {
         res.status(400).send("unable to delete from database");
     }

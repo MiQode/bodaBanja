@@ -5,7 +5,7 @@ html
     body
         div.form-row
             div.col.form-group.col-md-9    
-                form.search(action='/saleExecList' method='GET')
+                form.search(action='/salesExecList' method='GET')
                     div.form-row
                         div.col-md-8
                             input.form-control(name='gender' placeholder="Enter your search term ...")
@@ -19,9 +19,9 @@ html
                 tr
                     th First Name
                     th Last Name
-                    th Car
-                    //- th Birthday
+                    th Birthday
                     th Email
+                    th Car
                     th Gender
                     th Role
                 tbody
@@ -30,12 +30,16 @@ html
                         tr
                             td #{user.firstName}
                             td #{user.lastName}
-                            td #{user.cars}
-                            //- td #{user.birthday}
+                            td #{user.birthday}
                             td #{user.email}
+                            td #{user.cars}
                             td #{user.gender}
                             td #{user.role}
                             td
-                                form(method="POST" action='/registerExec/delete')
+                                form(action='/registerExec/delete' method='POST')
                                     input(type="hidden", placeholder="", name="id", value=user._id)
                                     button.btn.btn-dark.btn-block(type="submit") Delete
+                                form(action='/registerExec/update' method='POST')
+                                    input(type="hidden", placeholder="", name="id", value=user._id)
+                                    button.btn.btn-dark.btn-block(type="submit") Update
+                                    
