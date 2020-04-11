@@ -9,7 +9,7 @@ var salesExecSchema = new mongoose.Schema({
     },
     lastName: String,
     cars: String,
-    //birthday: Date,
+    birthday: Date,
     email: String,
     gender: String,
     role: {

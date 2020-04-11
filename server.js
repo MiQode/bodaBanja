@@ -6,6 +6,7 @@ const session = require('express-session');
 const User = require('./models/salesExecModel');
 const passport = require('passport')
 const bodyParser = require('body-parser');
+const path = require('path')
 
 
 const loginRoutes = require('./routes/loginRoutes');
@@ -13,7 +14,8 @@ const regSaleExecRoutes = require('./routes/regSalesExecRoutes')
 const userRoutes = require("./routes/userRoutes");
 
 server.set("view engine", "pug")
-server.use(express.static(__dirname + '/public'));
+server.use(express.static(path.join(__dirname, 'public')));
+
 
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
