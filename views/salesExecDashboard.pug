@@ -1,14 +1,15 @@
 doctype html
 html
     head
-        link(rel="stylesheet", href="./style.css")
+        link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
     body
         div.form-row
+            div.col.form-group.col-md-9 
             div.col.form-group.col-md-3 
-                form(method="POST" action="/logout")   
-                    button.btn.btn-dark.btn-block(type="submit") Logout
+                form(method="post" action="/logout")   
+                    button.btn.btn-dark.btn-block(type="submit") Log out
         h2 Welcome #{user.firstName}
-            p Here is your information
+        p Here is your information
         table.table
             thead.thead-dark
                 tr
@@ -29,4 +30,7 @@ html
                 tr
                     th Gender
                     td #{user.gender}
-                    
+                tr 
+                        td(colspan="2")
+                            button.btn.btn-dark.btn-block(type="submit")
+                                a(href='/user/salesEdit') Edit

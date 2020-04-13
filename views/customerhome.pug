@@ -1,0 +1,96 @@
+
+
+doctype html
+
+html
+
+    head
+
+        link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+
+    body
+
+        h2 Welcome #{user.fullName}
+
+        div.form-row
+
+            div.col-md-2.offset-9
+
+                form(method="post" action="/logout")   
+
+                    button.btn.btn-dark.btn-block(type="submit") Log out
+
+        p Here is your information
+
+        form(method="post" action="/register/update")
+
+            table.table
+
+                thead.thead-dark
+
+                    tr
+
+                        th Full Name 
+
+                        td 
+
+                            input.form-control(value = user.fullName name="fullName")
+
+                    tr
+
+                        th Car
+
+                        td 
+
+                            select.form-control(name="cars")
+
+                                option(value="saab" selected = user.cars === "saab") Saab
+
+                                option(value="fiat" selected = user.cars === "saab") Fiat
+
+                                option(value="volvo" selected = user.cars === "saab") Volvo
+
+                                option(value="audi" selected = user.cars === "saab") Audi
+
+                    tr
+
+                        th Birthday
+
+                        td 
+
+                            -var date = new Date(user.birthday).toISOString().slice(0,10)
+
+                            input.form-control(value = date type="date" name="birthday")
+
+                    tr
+
+                        th E- mail
+
+                        td 
+
+                            input.form-control(value = user.email, type="email" name="email")
+
+                    tr
+
+                        th Gender
+
+                        td 
+
+                            label Male&nbsp 
+
+                            input(value="Male" type="radio" checked = user.gender==="Male" name="gender")
+
+                            label &nbspFemale&nbsp 
+
+                            input(value="Female" type="radio" checked = user.gender==="Female" name="gender")
+
+                            label &nbspOther&nbsp 
+
+                            input(value="Other" type="radio" checked = user.gender==="Other" name="gender")
+
+                    tr 
+
+                        td(colspan="2")
+
+                            button.btn.btn-dark.btn-block(type="submit") Update
+

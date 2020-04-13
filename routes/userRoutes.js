@@ -1,14 +1,15 @@
-/**Route Definitions
-//////////////////*/
+/**users Route Definitions
+/////////////////////////*/
 const express = require('express');
 const router = express.Router();
 const User = require("../models/salesExecModel")
 
-router.get('/salesExecDashboard', async (req, res) => {
+// Get All Route
+router.get('/salesEdit', async (req, res) => {
     if (req.session.user) {
         try {
             const userItem = await User.findById(req.session.user._id)
-            res.render('salesExecDashboard', { user: userItem });
+            res.render('salesExecEdit', { user: userItem });
         } catch (err) {
             res.status(500).send("unable to find item in the database")
         }
@@ -16,6 +17,20 @@ router.get('/salesExecDashboard', async (req, res) => {
         res.redirect('/')
     }
 });
+
+router.get('/salesExecDashboard',async (req, res) => {
+    if (req.session.user) {
+        try {
+            const userItem = await User.findById(req.session.user._id)
+            res.render('salesExecDashboard', { user: userItem })
+        } catch {
+            res.status(500).send("unable to find item in the database");
+        }
+    } else {
+        res.redirect ('/')
+    }
+ })
+
 
 router.get('/adminDashboard', async (req, res) => {
     if (req.session.user) {
@@ -25,6 +40,7 @@ router.get('/adminDashboard', async (req, res) => {
     }
 })
 
+//Show list of sales executives route (function)
 router.get('/salesExecList', async (req, res) => {
     if (req.session.user) {
         try {
@@ -40,5 +56,6 @@ router.get('/salesExecList', async (req, res) => {
         res.redirect('/'); //redirect to the index login page
     }
 });
+
 
 module.exports = router;

@@ -56,7 +56,6 @@ mongoose.connect("mongodb://localhost:27017/banjaData", { useNewUrlParser: true,
 });
 
 
-
 server.listen(3000, function () {
     console.log('listening on 3000')
 })

@@ -14,6 +14,8 @@ html
             div.col.form-group.col-md-3 
                 form(method="POST" action="/logout")   
                     button.btn.btn-dark.btn-block(type="submit") Log out
+        h3
+            a(href="/registerExec") Register New Sales Executive
         table.table
             thead.thead-dark
                 tr
@@ -39,7 +41,6 @@ html
                                 form(action='/registerExec/delete' method='POST')
                                     input(type="hidden", placeholder="", name="id", value=user._id)
                                     button.btn.btn-dark.btn-block(type="submit") Delete
-                                form(action='/registerExec/update' method='POST')
-                                    input(type="hidden", placeholder="", name="id", value=user._id)
+                                form(action='/user/salesEdit' method='GET')
                                     button.btn.btn-dark.btn-block(type="submit") Update
                                     
