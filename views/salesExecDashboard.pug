@@ -1,7 +1,7 @@
 doctype html
 html
     head
-        link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/css/bootstrap/bootstrap.min.css")
     body
         div.form-row
             div.col.form-group.col-md-9 
@@ -9,6 +9,10 @@ html
                 form(method="post" action="/logout")   
                     button.btn.btn-dark.btn-block(type="submit") Log out
         h2 Welcome #{user.firstName}
+        figure.figure
+            img.figure-img.img-fluid.rounded(src="..." alt="...")
+            figcaption.figure-caption Caption
+        a(href='/registerClient') Register New Client
         p Here is your information
         table.table
             thead.thead-dark
@@ -30,6 +34,9 @@ html
                 tr
                     th Gender
                     td #{user.gender}
+                tr
+                    th Date of Registration
+                    td #{user.updated_at}
                 tr 
                         td(colspan="2")
                             button.btn.btn-dark.btn-block(type="submit")

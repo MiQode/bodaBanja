@@ -4,7 +4,8 @@ const server = express();
 const mongoose = require("mongoose");
 const session = require('express-session');
 const User = require('./models/salesExecModel');
-const passport = require('passport')
+const Client = require('./models/clientModel');
+const passport = require('passport');
 const bodyParser = require('body-parser');
 const path = require('path')
 
@@ -12,6 +13,7 @@ const path = require('path')
 const loginRoutes = require('./routes/loginRoutes');
 const regSaleExecRoutes = require('./routes/regSalesExecRoutes')
 const userRoutes = require("./routes/userRoutes");
+const clientRegRoutes = require('./routes/clientRegRoutes');
 
 server.set("view engine", "pug")
 server.use(express.static(path.join(__dirname, 'public')));
@@ -35,6 +37,8 @@ server.use(session({
 server.use('/', loginRoutes);
 server.use('/registerExec', regSaleExecRoutes);
 server.use('/user', userRoutes);
+server.use('/registerClient', clientRegRoutes)
+
 
 // //logout route
 server.post('/logout', (req, res) => {

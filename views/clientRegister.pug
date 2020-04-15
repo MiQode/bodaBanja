@@ -1,15 +1,15 @@
 docktype
 html
 	head
-		title Sales Executive Register &raquo; Home
+		title Client Register &raquo; Home
 		link(rel="stylesheet", href="/css/form.css")
 		script(src="validator.js")
 	body
 		div.main-w3layouts.wrapper
-			h1 New Sales Executive Registration Form
+			h1 New Client Registration Form
 			div.main-agileinfo
 				div.agileits-top
-					form(action="/registerExec" method="POST" name="contactForm" onsubmit="return validateForm()")
+					form(action="/registerClient" method="POST" name="contactForm" onsubmit="return validateForm()")
 						input.text(type="text" name="firstName" placeholder="First Name" required="")
 						div.error#fnameErr
 						input.text(type="text" name="lastName" placeholder="Last Name" required="")
@@ -17,30 +17,12 @@ html
 						label Date of Birth:
 						input.date(type="date" name="birthday" placeholder="Birth Day" required="")
 						div.error#dobErr
-						input.email(type="email" name="email" placeholder="Email" required="")
-						div.error#emailErr
-						input.text(type="password" name="password" placeholder="Password" required="")
-						div.error#pwdErr
-						label Car:
-						select#car(name="cars")
-							option(value='0') -- Select -- 
-							option(value='Volvo') Volvo
-							option(value='Benz') Benz
-							option(value='Toyota') Toyota
-							option(value='Audi') Audi
-						div.error#carErr
 						label Gender
 						label.radio Female:
 						input#fgender(type="radio", name="gender" value="female")
 						label.radio Male:
 						input#mgender(type="radio", name="gender" value="male")
 						div.error#genderErr
-						label Role
-						label.radio Admin:
-						input#role(type="radio", name="role" value="admin")
-						label.radio Sales Executive:
-						input#role(type="radio", name="role" value="salesExec")
-						div.error#roleErr
 						label Registration Date:
 						input.date(type="date" name="updated_at" placeholder="" required="")
 						div.error#regdateErr

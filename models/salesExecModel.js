@@ -46,24 +46,18 @@ var salesExecSchema = new mongoose.Schema({
         type: String,
         required: 'Please choose role',
         // default: 'basic',
-        // enum: ['basic', 'supervisor', 'admin']
+        // enum: ['basic', 'supervisor', 'admin']-var date = new Date(user.birthday).toISOString().slice(0,10)
     },
-    updated_at: { type: Date, default: Date.now },
+    updated_at: { 
+        type: Date, 
+        required: true,
+        default: Date.now
+    },
 });
 
-var ClientSchema = new mongoose.Schema({
-    firstName: {
-        type: String,
-        required: 'Please Enter your name'
-    },
-    lastName: String,
-    birthday: Date,
-    email: String,
-    gender: String,
-})
 
 salesExecSchema.plugin(passportLocalMongoose, {usernameField: 'email'});
-//New Client Model
+
 var User = mongoose.model("User", salesExecSchema);
 
 

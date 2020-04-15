@@ -1,6 +1,6 @@
 html
     head
-        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh', crossorigin='anonymous')
+        link(rel='stylesheet', href='/css/bootstrap/bootstrap.min.css')
         title List of users
     body
         div.form-row
@@ -26,6 +26,7 @@ html
                     th Car
                     th Gender
                     th Role
+                    th Registration Date
                 tbody
                     //- this how you create a loop in PUG
                     each user in users
@@ -37,10 +38,12 @@ html
                             td #{user.cars}
                             td #{user.gender}
                             td #{user.role}
+                            td #{user.updated_at}
                             td
                                 form(action='/registerExec/delete' method='POST')
                                     input(type="hidden", placeholder="", name="id", value=user._id)
                                     button.btn.btn-dark.btn-block(type="submit") Delete
                                 form(action='/user/salesEdit' method='GET')
+                                    input(type="hidden", placeholder="", name="id", value=user._id)
                                     button.btn.btn-dark.btn-block(type="submit") Update
                                     

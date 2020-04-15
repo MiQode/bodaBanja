@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const User = require("../models/salesExecModel")
 
+
 // Get All Route
 router.get('/salesEdit', async (req, res) => {
     if (req.session.user) {

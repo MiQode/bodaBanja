@@ -2,7 +2,7 @@
 doctype html
 html
     head
-        link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/css/bootstrap/bootstrap.min.css")
     body
         h2 Welcome #{user.firstName}
         div.form-row
@@ -25,15 +25,15 @@ html
                         th Car
                         td 
                             select.form-control(name="cars")
-                                option(value="saab" selected = user.cars === "saab") Volvo
-                                option(value="Benz" selected = user.cars === "saab") Benz
-                                option(value="Toyota" selected = user.cars === "saab") Toyota
-                                option(value="Audi" selected = user.cars === "saab") Audi
+                                option(value="Volvo" selected = user.cars === "Volvo") Volvo
+                                option(value="Benz" selected = user.cars === "Benz") Benz
+                                option(value="Toyota" selected = user.cars === "Toyota") Toyota
+                                option(value="Audi" selected = user.cars === "Audi") Audi
                     tr
                         th Birthday
                         td 
                             -var date = new Date(user.birthday).toISOString().slice(0,10)
-                            input.form-control(value = date type="date" name="birthday")
+                            input.form-control(type="date" name="birthday")
                     tr
                         th Email
                         td 
@@ -45,6 +45,11 @@ html
                             input(value="Male" type="radio" checked = user.gender==="Male" name="gender")
                             label &nbspFemale&nbsp 
                             input(value="Female" type="radio" checked = user.gender==="Female" name="gender")
+                    tr
+                        th Registration Date
+                        td 
+                            -var date = new Date(user.updated_at).toISOString().slice(0,10)
+                            input.form-control(type="date" name="updated_at")
                     tr 
                         td(colspan="2")
                             button.btn.btn-dark.btn-block(type="submit") Update
