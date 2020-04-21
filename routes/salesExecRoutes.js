@@ -50,6 +50,21 @@ router.get('/salesExecList', async (req, res) => {
     }
 });
 
+// Editing sales executive info
+router.get('/salesEdit', async (req, res) => {
+    if (req.session.user) {
+        try {
+            // const userItem = await User.findById(req.session.user._id)
+            const userItem = await User.findById(req.session.user._id)
+            res.render('salesExecEdit', { user: userItem });
+        } catch (err) {
+            res.status(500).send("unable to find item in the databas")
+        }
+    }else {
+        res.redirect('/')
+    }
+});
+
 // //  Code to Update a User
 router.post("/update", async (req, res) => {
     if (req.session.user) {

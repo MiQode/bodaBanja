@@ -7,7 +7,7 @@ html
             div.col.form-group.col-md-9 
             div.col.form-group.col-md-3 
                 form(method="post" action="/user/logout")   
-                    button.btn.btn-dark.btn-block(type="submit") Log out
+                    button.btn.btn-dark.btn-block(type="submit") Logout
         h2 Welcome #{user.firstName}
         figure.figure
             img.figure-img.img-fluid.rounded(src="..." alt="...")
@@ -39,5 +39,5 @@ html
                     td #{user.updated_at}
                 tr 
                         td(colspan="2")
-                            form(action='/user/salesEdit' method='GET')
+                            form(action='/salesExec/salesEdit' method='GET')
                                 button.btn.btn-dark.btn-block(type="submit") Edit

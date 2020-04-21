@@ -1,7 +1,14 @@
-//- extends layout
-
-block title
-    h2 Welcome admin #{name}
+doctype html
+html
+    head
+        link(rel="stylesheet", href="/css/bootstrap/bootstrap.min.css")
+    body
+        div.form-row
+            div.col.form-group.col-md-9 
+            div.col.form-group.col-md-3 
+                form(method="post" action="/user/logout")   
+                    button.btn.btn-dark.btn-block(type="submit") Logout
+        h2 Welcome Admin #{name}
     
         h4
             a(href='/salesExec/salesExecList') Sales Executives List

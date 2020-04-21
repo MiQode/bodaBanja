@@ -41,11 +41,10 @@ html
                             td #{user.registerDate}
                             td #{user.sales_id}
                             td
-                                form(action='/registerExec/delete' method='POST')
+                                form(action='/salesExec/delete' method='POST')
                                     input(type="hidden", placeholder="", name="id", value=user._id)
                                     button.btn.btn-dark.btn-block(type="submit") Delete
                                 form(action='/user/salesExecDashboard' method='GET')
                                     input(type="hidden", placeholder="", name="userid", value=user._id)
                                     button.btn.btn-dark.btn-block(type="submit") View
-                                    a(href='/user/salesExecDashboard') view
                                     
