@@ -9,7 +9,7 @@ html
 			h1 New Client Registration Form
 			div.main-agileinfo
 				div.agileits-top
-					form(action="/registerClient" method="POST" name="contactForm" onsubmit="return validateForm()")
+					form(action="/registerClient" method="POST" name="contactForm" onsubmit="return validateFor")
 						input.text(type="text" name="firstName" placeholder="First Name" required="")
 						div.error#fnameErr
 						input.text(type="text" name="lastName" placeholder="Last Name" required="")

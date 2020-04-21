@@ -12,7 +12,7 @@ html
                         div.col-md-2
                             input.btn.btn-dark.btn-block(type="submit")
             div.col.form-group.col-md-3 
-                form(method="POST" action="/logout")   
+                form(method="POST" action="/user/logout")   
                     button.btn.btn-dark.btn-block(type="submit") Log out
         h3
             a(href="/registerExec") Register New Sales Executive
@@ -27,7 +27,7 @@ html
                     th Gender
                     th Role
                     th Registration Date
-                tbody
+                    th I.D.
                     //- this how you create a loop in PUG
                     each user in users
                         tr
@@ -38,12 +38,14 @@ html
                             td #{user.cars}
                             td #{user.gender}
                             td #{user.role}
-                            td #{user.updated_at}
+                            td #{user.registerDate}
+                            td #{user.sales_id}
                             td
                                 form(action='/registerExec/delete' method='POST')
                                     input(type="hidden", placeholder="", name="id", value=user._id)
                                     button.btn.btn-dark.btn-block(type="submit") Delete
-                                form(action='/user/salesEdit' method='GET')
-                                    input(type="hidden", placeholder="", name="id", value=user._id)
-                                    button.btn.btn-dark.btn-block(type="submit") Update
+                                form(action='/user/salesExecDashboard' method='GET')
+                                    input(type="hidden", placeholder="", name="userid", value=user._id)
+                                    button.btn.btn-dark.btn-block(type="submit") View
+                                    a(href='/user/salesExecDashboard') view
                                     

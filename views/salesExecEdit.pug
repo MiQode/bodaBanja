@@ -4,10 +4,10 @@ html
     head
         link(rel="stylesheet", href="/css/bootstrap/bootstrap.min.css")
     body
-        h2 Welcome #{user.firstName}
+        h2 Welcome
         div.form-row
             div.col-md-2.offset-9
-                form(method="post" action="/logout") 
+                form(method="post" action="/user/logout") 
                     button.btn.btn-dark.btn-block(type="submit") Logout
         h2 Here is your information
         form(method="post" action="/registerExec/update")
@@ -42,9 +42,9 @@ html
                         th Gender
                         td 
                             label Male&nbsp 
-                            input(value="Male" type="radio" checked = user.gender==="Male" name="gender")
+                            input(value="Male" type="radio" checked = user.gender==="male" name="gender")
                             label &nbspFemale&nbsp 
-                            input(value="Female" type="radio" checked = user.gender==="Female" name="gender")
+                            input(value="Female" type="radio" checked = user.gender==="female" name="gender")
                     tr
                         th Registration Date
                         td 

@@ -42,6 +42,7 @@ var salesExecSchema = new mongoose.Schema({
         required: true,
         default: new Date()
     },    
+    sales_id: String,
     role: {
         type: String,
         required: 'Please choose role',
@@ -53,7 +54,7 @@ var salesExecSchema = new mongoose.Schema({
         required: true,
         default: Date.now
     },
-});
+}, {timestamps: true});
 
 
 salesExecSchema.plugin(passportLocalMongoose, {usernameField: 'email'});

@@ -1,0 +1,42 @@
+html
+    head
+        link(rel='stylesheet', href='/css/bootstrap/bootstrap.min.css')
+        title List of users
+    body
+        div.form-row
+            div.col.form-group.col-md-9    
+                form.search(action='/salesExecList' method='GET')
+                    div.form-row
+                        div.col-md-8
+                            input.form-control(name='gender' placeholder="Enter your search term ...")
+                        div.col-md-2
+                            input.btn.btn-dark.btn-block(type="submit")
+            div.col.form-group.col-md-3 
+                form(method="POST" action="/logout")   
+                    button.btn.btn-dark.btn-block(type="submit") Log out
+        h2 Clients List
+        table.table
+            thead.thead-dark
+                tr
+                    th First Name
+                    th Last Name
+                    th Birthday
+                    th Gender
+                    th Registration Date
+                tbody
+                    //- this how you create a loop in PUG
+                    each user in users
+                        tr
+                            td #{user.firstName}
+                            td #{user.lastName}
+                            td #{user.birthday}
+                            td #{user.gender}
+                            td #{user.updated_at}
+                            td
+                                form(action='/registerExec/delete' method='POST')
+                                    input(type="hidden", placeholder="", name="id", value=user._id)
+                                    button.btn.btn-dark.btn-block(type="submit") Delete
+                                form(action='/user/salesEdit' method='GET')
+                                    input(type="hidden", placeholder="", name="id", value=user._id)
+                                    button.btn.btn-dark.btn-block(type="submit") Update
+                                    

@@ -33,10 +33,28 @@ router.post("/registerExec", async (req, res)=> {
     }
  });
 
+//Show list of sales executives route (function)
+router.get('/salesExecList', async (req, res) => {
+    if (req.session.user) {
+        try {
+            let items = await User.find()
+            if (req.query.gender){
+                items = await User.find({ gender: req.query.gender })
+            }
+            res.render('salesExecList', { users: items })
+        } catch (err) {
+            res.status(400).send('unable to find items in the database')
+        }
+    } else {
+        res.redirect('/');
+    }
+});
+
 // //  Code to Update a User
 router.post("/update", async (req, res) => {
     if (req.session.user) {
     try {
+        // const updateduser = await User.findOneAndUpdate({ _id: req.session.user._id },req.body)
         const updateduser = await User.findOneAndUpdate({ _id: req.session.user._id },req.body)
         const role = permissions[updateduser.role]
         res.redirect(role.homepage);
