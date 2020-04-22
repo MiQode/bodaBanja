@@ -12,7 +12,7 @@ const path = require('path');
 
 //Project User Models
 const User = require('./models/salesExecModel');
-const Client = require('./models/clientModel');
+const Customer = require('./models/customerModel');
 
 
 
@@ -20,8 +20,7 @@ const Client = require('./models/clientModel');
 const loginRoutes = require('./routes/loginRoutes');
 const salesExecRoutes = require('./routes/salesExecRoutes')
 const userRoutes = require("./routes/userRoutes");
-const clientRegRoutes = require('./routes/clientRegRoutes');
-const clientRoutes = require('./routes/clientRoutes');
+const customerRoutes = require('./routes/customerRoutes');
 
 //Setting up view engine and static file access
 server.set("view engine", "pug")
@@ -49,9 +48,7 @@ server.use(session({
 server.use('/', loginRoutes);
 server.use('/salesExec', salesExecRoutes);
 server.use('/user', userRoutes);
-server.use('/registerClient', clientRegRoutes)
-server.use('/clients', clientRoutes)
-
+server.use('/customer', customerRoutes);
 
 //Connection to Database
 mongoose.connect("mongodb://localhost:27017/banjaData", { useNewUrlParser: true, useUnifiedTopology: true }, (error) => {

@@ -5,13 +5,14 @@ const passportLocalMongoose = require('passport-local-mongoose');
 var salesExecSchema = new mongoose.Schema({
     firstName: {
         type: String,
-        required: [true, 'Please enter your first name']
+        required: [true, 'Please enter your first name'],
+        minlength: [3, `name must be atleast 3 characters`],
+        maxlength: [4]
     },
     lastName: {
         type: String,
         required: [true, 'Please enter your last name']
     },
-    //dob: { type: Date , required: [true, 'Date of birth must be provided']},
     birthday: {
         type: Date,
         required: [true, 'Date of birth must be provided']
@@ -22,11 +23,13 @@ var salesExecSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: 'Email address cannot be left blank.',
-        // validate: [validateEmail, 'Please fill a valid email address'],
-        //     match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 
-        //     'Please fill a valid email address'],
-        //     index: {unique: true, dropDups: true}
+        required: 'Email address cannot be left blank.'
+    },
+    phone: {
+        type: String,
+        required: "Please enter right phone number",
+        minlength: [10, 'Enter correct phone number'], 
+        maxlength: [10, 'Enter correct phone number']
     },
     password: { 
         type: String, 
@@ -36,7 +39,14 @@ var salesExecSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Gender must be provided']
     },    
-    cars: String,
+    supervisor: {
+        type: String,
+        required: 'Choose supervisor'
+    },
+    numWorkingDays: {
+        type: Number, 
+        required: ""
+    },
     registerDate: {
         type: Date,
         required: true,

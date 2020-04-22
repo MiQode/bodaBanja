@@ -1,53 +1,60 @@
-docktype
+doctype
 html
 	head
-		title Sales Executive Register &raquo; Home
+		title Sales Executive Register &raquo; Boda-Boda Banja
+		link(rel="stylesheet", href="./css/bootstrap/bootstrap.css")
+		link(rel="stylesheet", href="/css/nav.css")
 		link(rel="stylesheet", href="/css/form.css")
-		script(src="validator.js")
+		script(src="/js/validate.js")
 	body
-		div.main-w3layouts.wrapper
-			h1 New Sales Executive Registration Form
-			div.main-agileinfo
-				div.agileits-top
-					form(action="/salesExec" method="POST" name="contactForm" onsubmit="return validateForm()")
-						input.text(type="text" name="firstName" placeholder="First Name" required="")
-						div.error#fnameErr
-						input.text(type="text" name="lastName" placeholder="Last Name" required="")
-						div.error#lnameErr
-						label Date of Birth:
-						input.date(type="date" name="birthday" placeholder="Birth Day" required="")
-						div.error#dobErr
-						input.email(type="email" name="email" placeholder="Email" required="")
-						div.error#emailErr
-						input.text(type="password" name="password" placeholder="Password" required="")
-						div.error#pwdErr
-						label Car:
-						select#car(name="cars")
-							option(value='0') -- Select -- 
-							option(value='Volvo') Volvo
-							option(value='Benz') Benz
-							option(value='Toyota') Toyota
-							option(value='Audi') Audi
-						div.error#carErr
-						label Gender
-						label.radio Female:
-						input#fgender(type="radio", name="gender" value="female")
-						label.radio Male:
-						input#mgender(type="radio", name="gender" value="male")
-						div.error#genderErr
-						label Role
-						label.radio Admin:
-						input#role(type="radio", name="role" value="admin")
-						label.radio Sales Executive:
-						input#role(type="radio", name="role" value="salesExec")
-						div.error#roleErr
-						label Registration Date:
-						input.date(type="date" name="updated_at" placeholder="" required="")
-						div.error#regdateErr
-						input.text(type="text" name="sales_id" placeholder="ID" required="")
-						div.error#idErr
-						input(type="submit" value="Register")
-						input(type="reset" value="Clear")
+		div.container
+			div.row
+				div.col
+					include components/nav					
+			div.row.hold
+				div.col
+					h1.heading New Sales Executive Registration Form
+					div.main-agileinfo
+						div.agileits-top
+							form#myForm(action="/salesExec" method="POST" name="contactForm")
+								input.text#fname(type="text" name="firstName" placeholder="First Name" pattern="^[a-zA-Z ]*$", title="Field should contain only alphabets" required)
+								p.error#fnameErr
+								input.text#lname(type="text" name="lastName" placeholder="Last Name" pattern="^[a-zA-Z ]*$", title="Field should contain only alphabets" required)
+								div.error#lnameErr
+								label Gender
+								label.radio Female:
+								input#fgender(type="radio", name="gender" value="female")
+								label.radio Male:
+								input#mgender(type="radio", name="gender" value="male")
+								div.error#genderErr
+								label Date of Birth:
+								input.date#dob(type="date" name="birthday" placeholder="Birth Day" required)
+								div.error#dobErr
+								input.email#email(type="email" name="email" placeholder="Email" required)
+								div.error#emailErr
+								input.number#phone(type="tel" name="phone" placeholder="Phone Number" required minlength="10", maxlength="10",pattern="^07[0-9]{8}$", title="Format is 07********")
+								div.error#phoneErr
+								input.text#pwd(type="password" name="password" placeholder="Password" required)
+								div.error#pwdErr
+								label Role
+								label.radio Admin:
+								input#role(type="radio", name="role" value="admin")
+								label.radio Supervisor:
+								input#role(type="radio", name="role" value="salesExec")
+								div.error#roleErr
+								label Registration Date:
+								input.date(type="date" name="updated_at" placeholder="" required)
+								div.error#regdateErr
+								input.text#id(type="text" name="sales_id" placeholder="ID" required)
+								div.error#idErr
+								select#supervisor(name="supervisor")
+									option(value='none') Choose Supervisor
+									option(value='John') John
+									option(value='Doe') Doe
+								input.number#wDays(type="number" name="numWorkingDays" placeholder="Number of Work Days" required="" pattern="{1,7}", min="1", max="7", title="These are number of working days in a week")
+								div.error#wDaysErr
+								input(type="submit" value="Register")
+								input(type="reset" value="Clear")
 		ul.colorlib-bubbles
 			<li></li>
 			<li></li>
@@ -59,3 +66,4 @@ html
 			<li></li>
 			<li></li>
 			<li></li>
+		script(src="/static/js/validate.js")

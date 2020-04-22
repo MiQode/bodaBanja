@@ -33,7 +33,7 @@ router.post("/registerExec", async (req, res)=> {
     }
  });
 
-//Show list of sales executives route (function)
+//Show list of sales executives
 router.get('/salesExecList', async (req, res) => {
     if (req.session.user) {
         try {

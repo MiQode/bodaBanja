@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-var clientSchema = new mongoose.Schema({
+var customerSchema = new mongoose.Schema({
     firstName: {
         type: String,
         required: [true, 'Please enter your first name']
@@ -16,7 +16,7 @@ var clientSchema = new mongoose.Schema({
     gender: {
         type: String,
         required: [true, 'Gender must be provided']
-    }, 
+    },
     registerDate: {
         type: Date,
         required: true,
@@ -24,7 +24,7 @@ var clientSchema = new mongoose.Schema({
     },    
 })
 
-var Client = mongoose.model('client', clientSchema)
+var Customer = mongoose.model('customer', customerSchema)
 
-module.exports = Client;
+module.exports = Customer;
 
