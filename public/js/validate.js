@@ -3,7 +3,7 @@
 const myform = document.getElementById("myForm");
 
 //Defining the formSubmitted function to add all the validation rules of the form fields
-const formSubmitted = event => {
+const formValidate = event => {
   //Added built-in method to prevent default actions by browser
   event.preventDefault();
 
@@ -79,44 +79,13 @@ const formSubmitted = event => {
   // } else {
   //   ninerror.innerHTML = "";
   // }
-
-  // //Validating rules for address
-  // //- Address field must not be empty
-  // //- User address must be containing alphanumeric characters only
-  // let addr = document.getElementById("address");
-  // let addrerror = document.getElementById("aderror-msg");
-
-  // if (addr.value === "" || addr.value.length < 15) {
-  //   addrerror.innerHTML =
-  //     "<span style='color: red;'>Enter valid address!</span>";
-  //   addr.focus();
-  //   return false;
-  // } else {
-  //   addrerror.innerHTML = "";
-  // }
-
-  // //Validating rules for loan amount
-  // //- Amount must not be empty
-  // //- Amount must not be less than 200,000
-  // //- Amount must not be more than 3,000,000
-  // var amount = document.getElementById("lnamount");
-  // let mnamount = 200000;
-  // let mxamount = 3000000;
-  // let amerror = document.getElementById("amounterror-msg");
-
-  // if (amount.value === "" || amount.value < mnamount || amount.value > mxamount) {
-  //   amerror.innerHTML =
-  //     "<span style='color: red;'>Enter amount between 200000 to 3000000!</span>";
-  //   amount.focus();
-  //   return false;
-  // } else {
-  //   amerror.innerHTML = "";
-  // }
+  
   alert('Form Succesfully Submitted');
   window.location.reload()
   return true;
 }; //end of validate function
 
+formValidate()
 //Adding the event listener to the form on the submit event on clicking the submit element to validate
-myform.addEventListener("submit", formSubmitted);
+// myform.addEventListener("submit", formSubmitted);
 

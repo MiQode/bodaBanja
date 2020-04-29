@@ -1,34 +1,65 @@
-docktype
+doctype
 html
 	head
-		title Client Register &raquo; Home
-		link(rel="stylesheet", href="/css/form.css")
-		script(src="validator.js")
+		include components/head
 	body
-		div.main-w3layouts.wrapper
-			h1 New Client Registration Form
-			div.main-agileinfo
-				div.agileits-top
-					form(action="/customer" method="POST" name="contactForm" onsubmit="return validateFor")
-						input.text(type="text" name="firstName" placeholder="First Name" required="")
-						div.error#fnameErr
-						input.text(type="text" name="lastName" placeholder="Last Name" required="")
-						div.error#lnameErr
-						label Date of Birth:
-						input.date(type="date" name="birthday" placeholder="Birth Day" required="")
-						div.error#dobErr
-						label Gender
-						label.radio Female:
-						input#fgender(type="radio", name="gender" value="female")
-						label.radio Male:
-						input#mgender(type="radio", name="gender" value="male")
-						div.error#genderErr
-						label Registration Date:
-						input.date(type="date" name="updated_at" placeholder="" required="")
-						div.error#regdateErr
-						input(type="submit" value="Register")
-						input(type="reset" value="Cancel")
-		ul.colorlib-bubbles
+		div.container
+			div.row.align-items-start
+				div.col
+					include components/nav
+			div.row.align-items-center
+				div.col
+					h1.heading New Customer Registration Form
+					div.main-agileinfo
+						div.agileits-top
+							form#myForm(action="/customer" method="POST" name="contactForm")
+								input.text#fname(type="text" name="firstName" placeholder="First Name" pattern="^[a-zA-Z]*$", title="Field should contain only alphabets" required)
+								p.error#fnameErr
+								input.text#lname(type="text" name="lastName" placeholder="Last Name" pattern="^[a-zA-Z]*$", title="Field should contain only alphabets" required)
+								div.error#lnameErr
+								label Marital Status:
+								label.radio Married:
+								input#married(type="radio", name="gender" value="married")
+								label.radio Single:
+								input#single(type="radio", name="gender" value="single")
+								div.error#maritalErr
+								label(for="dob") Date of Birth:
+								input.date#dob(type="date" name="birthday" placeholder="Birth Day" required)
+								div.error#dobErr
+								input.email#email(type="email" name="email" placeholder="Email(Optional)")
+								div.error#emailErr
+								input.number#phone(type="tel" name="phone" placeholder="Phone Number" minlength="10", maxlength="10",pattern="^07[0-9]{8}$", title="Format is 07********" required)
+								div.error#phoneErr
+								input.text#nin(type="text" name="nin" placeholder="NIN" minlength="13",maxlength="13", title="Enter valid NIN" required)
+								div.error#pwdErr
+								//- , pattern="/^[a-zA-Z\s]{3}[0-9]{10}$/"
+								select#supervisor(name="nationality")
+									option(value='none') Nationality
+									option(value='ugandan') Ugandan
+									option(value='kenyan') Kenyan
+									option(value='tanzanian') Tanzanian	
+								div.error#pwdErr
+								label(for="regDate") Registration Date:
+								input.date(type="date" name="updated_at" placeholder="" required)
+								div.error#regdateErr
+								label(for="vehicle") Vehicle:
+								select#supervisor(name="vehicle")
+									option(value='none') Choose Vehicle
+									option(value='boda') Boda-boda
+									option(value='tuk') Tuk-tuk
+								label Referee
+									input.text#refname(type="text" name="name" placeholder="Full Name" pattern="^[a-zA-Z ]*$" required)
+									div.error#refnameErr
+									input.text#refname(type="tel" name="refphone" placeholder="Phone" minlength="10", maxlength="10", pattern="^07[0-9]{8}$" required)
+									div.error#refErr
+									input.text#refname(type="text" name="occupation" placeholder="Occupation" pattern="^[a-zA-Z ]*$" required)
+									div.error#refErr
+									label(for="dob") Date of Birth:
+									input.date#refdob(type="date" name="refdob" placeholder="Birth Day" required)
+									div.error#refdobErr
+								input(type="submit" value="Register" onclick="formValidate()")
+								input(type="reset" value="Clear")
+		ul.bubbles
 			<li></li>
 			<li></li>
 			<li></li>
@@ -39,3 +70,5 @@ html
 			<li></li>
 			<li></li>
 			<li></li>
+		include components/footer
+		script(src="/js/validate.js")

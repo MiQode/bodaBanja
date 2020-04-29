@@ -1,50 +1,58 @@
+doctype
 html
     head
-        link(rel='stylesheet', href='/css/bootstrap/bootstrap.min.css')
-        title List of users
+        include components/head
     body
-        div.form-row
-            div.col.form-group.col-md-9    
-                form.search(action='/salesExecList' method='GET')
-                    div.form-row
-                        div.col-md-8
-                            input.form-control(name='gender' placeholder="Enter your search term ...")
-                        div.col-md-2
-                            input.btn.btn-dark.btn-block(type="submit")
-            div.col.form-group.col-md-3 
-                form(method="POST" action="/user/logout")   
-                    button.btn.btn-dark.btn-block(type="submit") Log out
-        h3
-            a(href="/registerExec") Register New Sales Executive
-        table.table
-            thead.thead-dark
-                tr
-                    th First Name
-                    th Last Name
-                    th Birthday
-                    th Email
-                    th Phone
-                    th Gender
-                    th Role
-                    th Registration Date
-                    th I.D.
-                    
-                    each user in users
-                        tr
-                            td #{user.firstName}
-                            td #{user.lastName}
-                            td #{user.birthday}
-                            td #{user.email}
-                            td #{user.phone}
-                            td #{user.gender}
-                            td #{user.role}
-                            td #{user.registerDate}
-                            td #{user.sales_id}
-                            td
-                                form(action='/salesExec/delete' method='POST')
-                                    input(type="hidden", placeholder="", name="id", value=user._id)
-                                    button.btn.btn-dark.btn-block(type="submit") Delete
-                                form(action='/user/salesExecDashboard' method='GET')
-                                    input(type="hidden", placeholder="", name="userid", value=user._id)
-                                    button.btn.btn-dark.btn-block(type="submit") View
-                                    
+        div.container
+            div.row
+                div.col
+                    include components/nav
+            div.row
+                div.col.form-group.col-md-9    
+                    form.search(action='/salesExecList' method='GET')
+                        div.form-row
+                            div.col-md-8
+                                input.form-control(name='gender' placeholder="Enter your search term ...")
+                            div.col-md-2
+                                button.btn.btn-dark.btn-block(type="submit") Query
+                div.col.form-group.col-md-3 
+                    form(method="POST" action="/user/logout")   
+                        button.btn.btn-dark.btn-block(type="submit") Log out
+            h1 Sales Executives List
+                form(action='/salesExec' method='GET')
+                    button.btn.btn-dark.btn-block(type="submit") Register New Sales Executive
+            table.table
+                thead.thead-dark
+                    tr
+                        th First Name
+                        th Last Name
+                        th Birthday
+                        th Email
+                        th Phone
+                        th Gender
+                        th Role
+                        th Supervisor
+                        th Registration Date
+                        th I.D.
+                        
+                        each user in users
+                            tr
+                                td #{user.firstName}
+                                td #{user.lastName}
+                                td #{user.birthday}
+                                td #{user.email}
+                                td #{user.phone}
+                                td #{user.gender}
+                                td #{user.role}
+                                td #{user.supervisor}
+                                td #{user.registerDate}
+                                td #{user.sales_id}
+                                td
+                                    form(action='/salesExec/delete' method='POST')
+                                        input(type="hidden", placeholder="", name="id", value=user._id)
+                                        button.btn.btn-dark.btn-block(type="submit") Delete
+                                    form(action='/user/salesExecDashboard' method='GET')
+                                        input(type="hidden", placeholder="", name="userid", value=user._id)
+                                        button.btn.btn-dark.btn-block(type="submit") View
+        include components/footer
+                                        

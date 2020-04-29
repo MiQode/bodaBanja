@@ -5,6 +5,7 @@
     line-height: 65px;
     text-align: center;
     background-color: rgba(0,0,0,0.2) !important;
+    z-index: 5;
 }
 
 /**** The Logo ****/
@@ -21,13 +22,9 @@
     font-size: 2.5rem;
 }
 
-.nav div.logo a:hover {
-    color: #00E676;
-}
-
 .nav div.main_list {
     height: 65px;
-    float: right;
+    
 }
 
 .nav div.main_list ul {
@@ -36,7 +33,8 @@
     display: flex;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding-left: 160px;
+    
 }
 
 .nav div.main_list ul li {

@@ -15,7 +15,7 @@ router.post("/", async (req, res)=> {
         await User.register(user, req.body.password, (err) => {
             if (err)  { throw err }
             console.log('Item has been saved')
-            res.redirect('/');
+            res.redirect('/salesExec');
         });
     } catch (error) {
         res.status(400).send("unable to save to database");

@@ -3,22 +3,20 @@ body{
   background-size: cover;
   background-attachment: fixed;
   font-family:'Numans', sans-serif;
-}
-.hold {
-  margin-top: 80px;
+  padding-top: 80px;
+  
 }
 
 h1 {
-  font-size: 15px;
   text-align: center;
   color: #fff;
   text-transform: capitalize;
   letter-spacing: 4px;
+
   
 }
 .heading{
   font-size: 2em;
-  padding-top: 30px;
 }
 
 .main-agileinfo {
@@ -32,7 +30,7 @@ h1 {
   padding: 3em;
 }
 
-input[type="text"], .date, input[type="email"], input[type="password"], input[type="number"], input[type="tel"], select, select[option]  {
+input[type="text"], input[type="date"], input[type="email"], input[type="password"], input[type="number"], input[type="tel"], select, select[option]  {
   font-size: 0.9em;
   color: #fff;
   font-weight: 100;
@@ -56,28 +54,38 @@ input.email, input.text, input.number {
   margin: 2em 0;
 }
 
+input:invalid{
+  border: 2px solid red;
+}
+
+input:valid{
+  border: 1px solid green;
+}
+
+.table {
+  font-size: 12px;
+}
+
 label{
   display: block;
   font-size: 0.9em;
   color: #fff;
-  font-weight: 100;
   font-family: 'Roboto', sans-serif;
-  padding: 0.8em;
-  padding-top: 1em;
+  padding: 0.4em;
+  padding-top: 0.7em;
 }
 .radio{
   display: inline;
 }
-
+.btn{
+  margin-bottom: 4px;
+}
 .text:focus, .text:valid {
   box-shadow: none;
   outline: none;
   background-position: 0 0;
 }
 
-/* input:invalid {
-  border: 2px solid yellow;
-} */
 .text:focus::-webkit-input-placeholder, .text:valid::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.7);
   font-size: .9em;
@@ -137,52 +145,7 @@ input[type="submit"]:hover {
 }
 
 
-@keyframes rippling {
-  50% {
-    border-left-color: #fff;
-  }
-
-  100% {
-    border-bottom-color: #fff;
-    border-left-color: #fff;
-  }
-}
-
-/*-- //checkbox --*/
-/*-- copyright --*/
-.colorlibcopy-agile {
-  margin: 2em 0 1em;
-  text-align: center;
-}
-
-.colorlibcopy-agile p {
-  font-size: .9em;
-  color: #fff;
-  line-height: 1.8em;
-  letter-spacing: 1px;
-  font-weight: 100;
-}
-
-.colorlibcopy-agile p a {
-  color: #fff;
-  transition: 0.5s all;
-  -webkit-transition: 0.5s all;
-  -moz-transition: 0.5s all;
-  -o-transition: 0.5s all;
-  -ms-transition: 0.5s all;
-}
-
-.colorlibcopy-agile p a:hover {
-  color: #000;
-}
-
-/*-- //copyright --*/
-.wrapper {
-  position: relative;
-  overflow: hidden;
-}
-
-.colorlib-bubbles {
+.bubbles {
   position: absolute;
   top: 0;
   left: 0;
@@ -191,7 +154,7 @@ input[type="submit"]:hover {
   z-index: -1;
 }
 
-.colorlib-bubbles li {
+.bubbles li {
   position: absolute;
   list-style: none;
   display: block;
@@ -216,11 +179,11 @@ input[type="submit"]:hover {
   border-radius: 50%;
 }
 
-.colorlib-bubbles li:nth-child(1) {
+.bubbles li:nth-child(1) {
   left: 10%;
 }
 
-.colorlib-bubbles li:nth-child(2) {
+.bubbles li:nth-child(2) {
   left: 20%;
   width: 80px;
   height: 80px;
@@ -235,7 +198,7 @@ input[type="submit"]:hover {
   animation-duration: 17s;
 }
 
-.colorlib-bubbles li:nth-child(3) {
+.bubbles li:nth-child(3) {
   left: 25%;
   -webkit-animation-delay: 4s;
   -moz-animation-delay: 4s;
@@ -244,7 +207,7 @@ input[type="submit"]:hover {
   animation-delay: 4s;
 }
 
-.colorlib-bubbles li:nth-child(4) {
+.bubbles li:nth-child(4) {
   left: 40%;
   width: 60px;
   height: 60px;
@@ -256,11 +219,11 @@ input[type="submit"]:hover {
   background-color: rgba(255, 255, 255, 0.25);
 }
 
-.colorlib-bubbles li:nth-child(5) {
+.bubbles li:nth-child(5) {
   left: 70%;
 }
 
-.colorlib-bubbles li:nth-child(6) {
+.bubbles li:nth-child(6) {
   left: 80%;
   width: 120px;
   height: 120px;
@@ -272,7 +235,7 @@ input[type="submit"]:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.colorlib-bubbles li:nth-child(7) {
+.bubbles li:nth-child(7) {
   left: 32%;
   width: 160px;
   height: 160px;
@@ -283,7 +246,7 @@ input[type="submit"]:hover {
   animation-delay: 7s;
 }
 
-.colorlib-bubbles li:nth-child(8) {
+.bubbles li:nth-child(8) {
   left: 55%;
   width: 20px;
   height: 20px;
@@ -295,7 +258,7 @@ input[type="submit"]:hover {
   animation-duration: 40s;
 }
 
-.colorlib-bubbles li:nth-child(9) {
+.bubbles li:nth-child(9) {
   left: 25%;
   width: 10px;
   height: 10px;
@@ -306,7 +269,7 @@ input[type="submit"]:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-.colorlib-bubbles li:nth-child(10) {
+.bubbles li:nth-child(10) {
   left: 90%;
   width: 160px;
   height: 160px;
@@ -582,4 +545,14 @@ input[type="submit"]:hover {
   .main-w3layouts {
     padding: 1em 0 0;
   }
+}
+.footer {
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  color: #1f3d0f;
+  background-color: rgb(255, 255, 0, 0.2) !important;
+  
 }

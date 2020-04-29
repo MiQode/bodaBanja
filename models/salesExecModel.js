@@ -6,12 +6,14 @@ var salesExecSchema = new mongoose.Schema({
     firstName: {
         type: String,
         required: [true, 'Please enter your first name'],
-        minlength: [3, `name must be atleast 3 characters`],
-        maxlength: [4]
+        minlength: [2, 'name must be atleast 3 characters'],
+        maxlength: [20]
     },
     lastName: {
         type: String,
-        required: [true, 'Please enter your last name']
+        required: [true, 'Please enter your last name'],
+        minlength: [2, 'name must be atleast 3 characters'],
+        maxlength: [20, 'name must be atleast 3 characters']
     },
     birthday: {
         type: Date,
@@ -23,7 +25,7 @@ var salesExecSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: 'Email address cannot be left blank.'
+        required: [true, 'Email valid emaiil']
     },
     phone: {
         type: String,
@@ -33,7 +35,9 @@ var salesExecSchema = new mongoose.Schema({
     },
     password: { 
         type: String, 
-        required: [true, 'Password cannot be left blank']
+        required: [true, 'Password cannot be left blank'],
+        minlength: [6, 'Required length is 6 characters'], 
+        maxlength: [12]
     },
     gender: {
         type: String,
